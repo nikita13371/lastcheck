@@ -20,8 +20,8 @@ html,body{width:100%;height:100%;background:#0a0000;color:#fff;overflow:hidden;}
 #facts-screen.hide{opacity:0;pointer-events:none;}
 .facts-label{font-size:11px;letter-spacing:4px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:40px;}
 .fact-box{max-width:640px;text-align:center;padding:0 40px;min-height:160px;display:flex;align-items:center;justify-content:center;}
-.fact-text{font-size:28px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.9);opacity:0;transition:opacity .6s;}
-.fact-text.show{opacity:1;}
+.fact-text{font-size:28px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.9);opacity:0;transform:translateY(15px);transition:opacity .8s cubic-bezier(0.4,0,0.2,1),transform .8s cubic-bezier(0.4,0,0.2,1);}
+.fact-text.show{opacity:1;transform:translateY(0);}
 .fact-text b{color:var(--red2);font-weight:600;}
 .facts-controls{display:flex;align-items:center;gap:20px;margin-top:50px;}
 .facts-dots{display:flex;gap:8px;}
@@ -178,6 +178,34 @@ html,body{width:100%;height:100%;background:#0a0000;color:#fff;overflow:hidden;}
 .compat-track{height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;}
 .compat-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--red2));border-radius:3px;transition:width 1s ease;}
 
+
+
+/* ═══ CREDITS ═══ */
+#credits{position:fixed;inset:0;z-index:7000;background:#000;display:none;overflow:hidden;}
+#credits.on{display:block;}
+.cr-close{position:fixed;top:22px;right:22px;z-index:7001;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:12px;padding:7px 16px;border-radius:4px;cursor:pointer;}
+.cr-close:hover{background:rgba(255,255,255,0.1);}
+#cr-scroll{position:absolute;left:50%;transform:translateX(-50%);width:580px;max-width:90vw;text-align:center;padding:100vh 0 100vh;}
+.cr-photos{display:flex;gap:14px;justify-content:center;margin-bottom:30px;}
+.cr-photos img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12);}
+.cr-name{font-size:42px;font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
+.cr-name em{color:var(--red2);font-style:normal;}
+.cr-sub{font-size:12px;letter-spacing:4px;color:rgba(255,255,255,0.28);text-transform:uppercase;margin-bottom:48px;}
+.cr-div{width:50px;height:1px;background:rgba(255,255,255,0.12);margin:0 auto 48px;}
+.cr-love{font-size:17px;line-height:2.1;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:48px;font-style:italic;}
+.cr-love strong{color:#fff;font-weight:600;font-style:normal;}
+.cr-stats{display:flex;justify-content:center;gap:52px;margin-bottom:48px;}
+.cr-stat-n{font-size:42px;font-weight:900;color:var(--red2);display:block;}
+.cr-stat-l{font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+.cr-roles{display:flex;flex-direction:column;gap:14px;margin-bottom:48px;}
+.cr-role{display:flex;justify-content:space-between;align-items:baseline;}
+.cr-role-k{font-size:12px;color:rgba(255,255,255,0.3);}
+.cr-role-dots{flex:1;border-bottom:1px dotted rgba(255,255,255,0.07);margin:0 10px;position:relative;top:-4px;}
+.cr-role-v{font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;}
+.cr-heart{font-size:60px;margin-bottom:14px;animation:hb 2s ease-in-out infinite;}
+@keyframes hb{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.cr-final{font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+.cr-brand{font-size:22px;font-weight:900;font-style:italic;color:var(--red);margin-top:48px;letter-spacing:-0.5px;}
 
 /* ═══ PLAYER ═══ */
 #ep-intro{position:fixed;inset:0;z-index:8500;background:var(--bg);display:none;align-items:center;justify-content:center;flex-direction:column;}
@@ -399,25 +427,96 @@ html,body{width:100%;height:100%;background:#0a0000;color:#fff;overflow:hidden;}
       <div class="map-sub">Нажмите на город чтобы увидеть моменты</div>
     </div>
 
-    <svg class="kz-map" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 120 180 L 180 140 L 260 130 L 340 120 L 420 115 L 500 125 L 570 145 L 640 170 L 690 200 L 700 240 L 670 280 L 600 300 L 520 310 L 440 305 L 360 300 L 280 290 L 200 270 L 140 240 L 110 210 Z"
-            fill="rgba(183,28,28,0.08)" stroke="rgba(183,28,28,0.3)" stroke-width="1.5"/>
+    <svg class="kz-map" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 100 200 L 130 160 L 180 130 L 240 115 L 310 105 L 380 100 L 440 100 L 500 105 L 560 115 L 620 130 L 680 150 L 720 175 L 760 200 L 790 235 L 810 275 L 800 315 L 770 345 L 730 365 L 680 380 L 620 390 L 560 395 L 500 400 L 440 400 L 380 395 L 320 385 L 260 370 L 200 350 L 150 325 L 115 290 L 100 250 Z"
+            fill="rgba(183,28,28,0.06)" stroke="rgba(183,28,28,0.5)" stroke-width="1.5"/>
 
-      <g class="city-dot" id="dot-astana" onclick="showCity('astana')">
-        <circle class="city-pulse" cx="420" cy="170" r="8" fill="#D32F2F"/>
-        <circle cx="420" cy="170" r="8" fill="#B71C1C" stroke="#fff" stroke-width="2"/>
-        <text class="city-label" x="420" y="148" text-anchor="middle">Астана</text>
-        <text class="city-sub" x="420" y="196" text-anchor="middle">столица</text>
+      <g class="city-dot" onclick="showCity('astana')">
+        <circle class="city-pulse" cx="490" cy="170" r="8" fill="#D32F2F"/>
+        <circle cx="490" cy="170" r="8" fill="#B71C1C" stroke="#fff" stroke-width="2"/>
+        <text class="city-label" x="490" y="150" text-anchor="middle" style="font-weight:700;">Астана</text>
       </g>
 
-      <g class="city-dot" id="dot-almaty" onclick="showCity('almaty')">
-        <circle class="city-pulse" cx="540" cy="270" r="8" fill="#D32F2F"/>
-        <circle cx="540" cy="270" r="8" fill="#B71C1C" stroke="#fff" stroke-width="2"/>
-        <text class="city-label" x="540" y="248" text-anchor="middle">Алматы</text>
-        <text class="city-sub" x="540" y="296" text-anchor="middle">где всё началось</text>
+      <g class="city-dot" onclick="showCity('almaty')">
+        <circle class="city-pulse" cx="700" cy="335" r="8" fill="#D32F2F"/>
+        <circle cx="700" cy="335" r="8" fill="#B71C1C" stroke="#fff" stroke-width="2"/>
+        <text class="city-label" x="700" y="360" text-anchor="middle" style="font-weight:700;">Алматы</text>
       </g>
 
-      <line x1="420" y1="170" x2="540" y2="270" stroke="rgba(183,28,28,0.4)" stroke-width="2" stroke-dasharray="6 4"/>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="490" cy="115" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="490" y="100" text-anchor="middle" fill="rgba(255,255,255,0.5)">Петропавловск</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="380" cy="145" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="380" y="130" text-anchor="middle" fill="rgba(255,255,255,0.5)">Костанай</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="440" cy="155" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="440" y="140" text-anchor="middle" fill="rgba(255,255,255,0.5)">Кокшетау</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="610" cy="155" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="610" y="140" text-anchor="middle" fill="rgba(255,255,255,0.5)">Павлодар</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="700" cy="180" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="720" y="180" text-anchor="start" fill="rgba(255,255,255,0.5)">Семей</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="740" cy="210" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="760" y="215" text-anchor="start" fill="rgba(255,255,255,0.5)">Усть-Каменогорск</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="220" cy="215" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="220" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)">Уральск</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="290" cy="245" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="290" y="230" text-anchor="middle" fill="rgba(255,255,255,0.5)">Актобе</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="180" cy="290" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="180" y="310" text-anchor="middle" fill="rgba(255,255,255,0.5)">Атырау</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="200" cy="360" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="200" y="380" text-anchor="middle" fill="rgba(255,255,255,0.5)">Актау</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="440" cy="250" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="440" y="235" text-anchor="middle" fill="rgba(255,255,255,0.5)">Жезказган</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="555" cy="220" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="555" y="240" text-anchor="middle" fill="rgba(255,255,255,0.5)">Караганда</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="390" cy="325" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="390" y="310" text-anchor="middle" fill="rgba(255,255,255,0.5)">Кызылорда</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="640" cy="285" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="640" y="270" text-anchor="middle" fill="rgba(255,255,255,0.5)">Балхаш</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="750" cy="325" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="775" y="325" text-anchor="start" fill="rgba(255,255,255,0.5)">Талдыкорган</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="475" cy="365" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="475" y="385" text-anchor="middle" fill="rgba(255,255,255,0.5)">Туркестан</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="590" cy="370" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="590" y="355" text-anchor="middle" fill="rgba(255,255,255,0.5)">Тараз</text>
+      </g>
+      <g class="city-dot" onclick="showCity('none')">
+        <circle cx="520" cy="385" r="5" fill="none" stroke="rgba(183,28,28,0.6)" stroke-width="1.5"/>
+        <text class="city-sub" x="520" y="405" text-anchor="middle" fill="rgba(255,255,255,0.5)">Шымкент</text>
+      </g>
+
+      <line x1="490" y1="170" x2="700" y2="335" stroke="rgba(183,28,28,0.5)" stroke-width="2" stroke-dasharray="6 4"/>
     </svg>
 
     <div class="city-panel" id="city-panel">
@@ -434,12 +533,12 @@ html,body{width:100%;height:100%;background:#0a0000;color:#fff;overflow:hidden;}
 </div>
 
 <!-- BROWSE -->
-<div id="browse">
+<div id="browse" style="visibility:hidden;">
   <div class="nf-nav">
     <div class="nf-brand">netfilm<span>.studio</span></div>
     <div class="nf-links">
-      <a class="active">Главная</a>
-      <a>Эпизоды</a>
+      <a class="active" onclick="scrollTo({top:0,behavior:'smooth'})">Главная</a>
+      <a onclick="document.querySelector('.ep-row').scrollIntoView({behavior:'smooth',block:'center'})">Эпизоды</a>
     </div>
     <button class="map-btn" onclick="openMap()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
@@ -649,10 +748,13 @@ function initFacts() {
 function showFact(i) {
   const el = document.getElementById('fact-text');
   el.classList.remove('show');
+  // wait for fade out to complete (matches CSS 0.8s)
   setTimeout(() => {
     el.innerHTML = FACTS[i];
+    // force reflow so animation restarts cleanly
+    void el.offsetHeight;
     el.classList.add('show');
-  }, 300);
+  }, 800);
   document.querySelectorAll('.fact-dot').forEach((d, j) => {
     d.classList.toggle('on', j === i);
   });
@@ -663,7 +765,7 @@ function startFactTimer() {
     if (factsPaused) return;
     factIdx = (factIdx + 1) % FACTS.length;
     showFact(factIdx);
-  }, 4000);
+  }, 5500);
 }
 
 function startProgress() {
@@ -700,10 +802,16 @@ function showLogo() {
   logo.classList.add('on');
   playStartupSound();
   setTimeout(() => {
+    // Показываем browse ПОД лого, потом плавно убираем лого
+    document.getElementById('browse').style.visibility = 'visible';
+    document.getElementById('browse').style.opacity = '0';
+    document.getElementById('browse').style.transition = 'opacity 1s';
+    requestAnimationFrame(() => {
+      document.getElementById('browse').style.opacity = '1';
+    });
     logo.classList.add('hide');
     setTimeout(() => {
       logo.style.display = 'none';
-      // Автозапуск музыки
       setTimeout(() => {
         if (!musicPlaying) toggleMusic();
       }, 500);
@@ -725,6 +833,14 @@ function closeMap() {
 }
 
 function showCity(key) {
+  if (key === 'none') {
+    document.getElementById('city-name').textContent = 'Здесь вы ещё не были';
+    document.getElementById('city-desc').textContent = 'Возможно, следующий эпизод вашей истории случится именно здесь ❤';
+    document.getElementById('slides').innerHTML = '';
+    document.getElementById('slide-nav').innerHTML = '';
+    document.getElementById('city-panel').classList.add('on');
+    return;
+  }
   const city = CITIES[key];
   currentCityPhotos = city.photos;
   currentSlide = 0;
@@ -810,6 +926,18 @@ function buildEps() {
     });
     row.appendChild(d);
   });
+
+    const addCard = document.createElement('a');
+    addCard.className = 'ep-card';
+    addCard.href = 'https://wa.me/77000000000?text=Хочу%20заказать%20свой%20netfilm.studio';
+    addCard.target = '_blank';
+    addCard.style.cssText = 'display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed rgba(183,28,28,0.4);background:rgba(183,28,28,0.05);text-decoration:none;color:#fff;min-height:170px;';
+    addCard.innerHTML = `
+      <div style="font-size:40px;color:var(--red2);margin-bottom:8px;">+</div>
+      <div style="font-size:12px;font-weight:600;text-align:center;padding:0 12px;">Хочу такой же</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;">WhatsApp</div>`;
+    row.appendChild(addCard);
+
 }
 
 
@@ -827,39 +955,39 @@ function closeInfoOutside(e) {
 /* ═══ ФИЛЬМЫ ═══ */
 const MOVIES = [
   {
-    title: 'The Notebook',
+    title: 'Дневник памяти',
     year: '2004',
     score: '8.1',
     img: 'https://m.media-amazon.com/images/M/MV5BMTk3OTM5Njg5M15BMl5BanBnXkFtZTYwMzA0ODI3._V1_.jpg',
-    link: 'https://www.imdb.com/title/tt0332280/'
+    link: 'https://www.kinopoisk.ru/film/4374/'
   },
   {
-    title: 'La La Land',
+    title: 'Ла-Ла Ленд',
     year: '2016',
     score: '8.0',
     img: 'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg',
-    link: 'https://www.imdb.com/title/tt3783958/'
+    link: 'https://www.kinopoisk.ru/film/841081/'
   },
   {
-    title: 'Pride & Prejudice',
+    title: 'Гордость и предубеждение',
     year: '2005',
     score: '7.8',
     img: 'https://m.media-amazon.com/images/M/MV5BNGU2NjA1YjItMjZkYy00YTZjLWJiODYtZmQ2NjJiZmYyMDI5XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg',
-    link: 'https://www.imdb.com/title/tt0414387/'
+    link: 'https://www.kinopoisk.ru/film/6266/'
   },
   {
-    title: 'About Time',
+    title: 'Бойфренд из будущего',
     year: '2013',
     score: '7.8',
     img: 'https://m.media-amazon.com/images/M/MV5BMTA1ODUzMDA4MDNeQTJeQWpwZ15BbWU3MDk4NDI5Nzk@._V1_.jpg',
-    link: 'https://www.imdb.com/title/tt2194499/'
+    link: 'https://www.kinopoisk.ru/film/677471/'
   },
   {
-    title: 'Titanic',
+    title: 'Титаник',
     year: '1997',
     score: '7.9',
     img: 'https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg',
-    link: 'https://www.imdb.com/title/tt0120338/'
+    link: 'https://www.kinopoisk.ru/film/2213/'
   }
 ];
 
@@ -870,7 +998,7 @@ function buildMovies() {
     d.className = 'movie-card';
     d.innerHTML = `
       <div class="movie-badge">★ ${m.score}</div>
-      <a class="movie-watch" href="${m.link}" target="_blank" onclick="event.stopPropagation()">Смотреть</a>
+      <a class="movie-watch" href="${m.link}" target="_blank" onclick="event.stopPropagation()">Кинопоиск</a>
       <img src="${m.img}" alt="${m.title}" onerror="this.src='https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=300'"/>
       <div class="movie-overlay">
         <div class="movie-title">${m.title}</div>
@@ -881,6 +1009,65 @@ function buildMovies() {
   });
 }
 
+
+
+/* ═══ CREDITS ═══ */
+#credits{position:fixed;inset:0;z-index:7000;background:#000;display:none;overflow:hidden;}
+#credits.on{display:block;}
+.cr-close{position:fixed;top:22px;right:22px;z-index:7001;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.12);color:#fff;font-size:12px;padding:7px 16px;border-radius:4px;cursor:pointer;}
+.cr-close:hover{background:rgba(255,255,255,0.1);}
+#cr-scroll{position:absolute;left:50%;transform:translateX(-50%);width:580px;max-width:90vw;text-align:center;padding:100vh 0 100vh;}
+.cr-photos{display:flex;gap:14px;justify-content:center;margin-bottom:30px;}
+.cr-photos img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12);}
+.cr-name{font-size:42px;font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
+.cr-name em{color:var(--red2);font-style:normal;}
+.cr-sub{font-size:12px;letter-spacing:4px;color:rgba(255,255,255,0.28);text-transform:uppercase;margin-bottom:48px;}
+.cr-div{width:50px;height:1px;background:rgba(255,255,255,0.12);margin:0 auto 48px;}
+.cr-love{font-size:17px;line-height:2.1;color:rgba(255,255,255,0.65);font-weight:300;margin-bottom:48px;font-style:italic;}
+.cr-love strong{color:#fff;font-weight:600;font-style:normal;}
+.cr-stats{display:flex;justify-content:center;gap:52px;margin-bottom:48px;}
+.cr-stat-n{font-size:42px;font-weight:900;color:var(--red2);display:block;}
+.cr-stat-l{font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+.cr-roles{display:flex;flex-direction:column;gap:14px;margin-bottom:48px;}
+.cr-role{display:flex;justify-content:space-between;align-items:baseline;}
+.cr-role-k{font-size:12px;color:rgba(255,255,255,0.3);}
+.cr-role-dots{flex:1;border-bottom:1px dotted rgba(255,255,255,0.07);margin:0 10px;position:relative;top:-4px;}
+.cr-role-v{font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;}
+.cr-heart{font-size:60px;margin-bottom:14px;animation:hb 2s ease-in-out infinite;}
+@keyframes hb{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.cr-final{font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+.cr-brand{font-size:22px;font-weight:900;font-style:italic;color:var(--red);margin-top:48px;letter-spacing:-0.5px;}
+
+
+/* ═══ CREDITS ═══ */
+let crAnim = null, crListenersAdded = false;
+function startCredits() {
+  if (crAnim) { cancelAnimationFrame(crAnim); crAnim = null; }
+  goBack(); // закрыть плеер
+  const cr = document.getElementById('credits');
+  const scroll = document.getElementById('cr-scroll');
+  scroll.style.transform = 'translateX(-50%) translateY(0)';
+  cr.classList.add('on');
+  let pos = 0, paused = false, last = null;
+  if (!crListenersAdded) {
+    scroll.addEventListener('mouseenter', () => paused = true);
+    scroll.addEventListener('mouseleave', () => paused = false);
+    scroll.addEventListener('touchstart', () => paused = true, { passive: true });
+    scroll.addEventListener('touchend', () => setTimeout(() => paused = false, 2000), { passive: true });
+    crListenersAdded = true;
+  }
+  function tick(ts) {
+    if (!last) last = ts;
+    const dt = (ts - last) / 1000; last = ts;
+    if (!paused) { pos += 62 * dt; scroll.style.transform = `translateX(-50%) translateY(-${pos}px)`; }
+    crAnim = requestAnimationFrame(tick);
+  }
+  crAnim = requestAnimationFrame(tick);
+}
+function closeCredits() {
+  document.getElementById('credits').classList.remove('on');
+  if (crAnim) { cancelAnimationFrame(crAnim); crAnim = null; }
+}
 
 /* ═══ PLAYER ═══ */
 let cur = 0, isMini = false, isPlaying = false;
@@ -954,7 +1141,11 @@ function loadVideo(src) {
   };
   v.onended = () => {
     isPlaying = false;
-    if (cur + 1 < eps.length) nextEp();
+    if (cur + 1 < eps.length) {
+      nextEp();
+    } else {
+      setTimeout(startCredits, 800);
+    }
   };
 }
 
@@ -989,6 +1180,8 @@ function toggleMini() {
   isMini = !isMini;
   document.getElementById('player').classList.toggle('mini', isMini);
   document.getElementById('size-btn').textContent = isMini ? '⛶ На весь экран' : '⊡ Свернуть';
+  // Показываем главный экран когда плеер в мини-режиме
+  document.getElementById('browse').style.display = isMini ? 'block' : 'none';
 }
 
 function nextEp() {
@@ -1014,7 +1207,7 @@ function goBack() {
 
 /* ═══ ESC ═══ */
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeMap(); closeInfo(); if (document.getElementById('player').classList.contains('on')) goBack(); }
+  if (e.key === 'Escape') { closeMap(); closeInfo(); closeCredits(); if (document.getElementById('player').classList.contains('on')) goBack(); }
   if (e.key === ' ' && document.getElementById('player').classList.contains('on')) { e.preventDefault(); togglePlay(); }
   if (e.key === 'ArrowLeft' && document.getElementById('player').classList.contains('on')) seekBy(-10);
   if (e.key === 'ArrowRight' && document.getElementById('player').classList.contains('on')) seekBy(10);
@@ -1024,6 +1217,10 @@ document.addEventListener('keydown', e => {
 initFacts();
 buildEps();
 buildMovies();
+// Init credits photos
+document.getElementById('cr-p1').src = EP1;
+document.getElementById('cr-p2').src = EP2;
+document.getElementById('cr-p3').src = EP3;
 </script>
 
 <!-- EP INTRO -->
@@ -1077,6 +1274,52 @@ buildMovies();
       <button class="pl-seek-btn" onclick="seekBy(10)">10с ›</button>
       <div class="pl-time"><span id="t-cur">0:00</span> / <span id="t-tot">0:00</span></div>
     </div>
+  </div>
+</div>
+
+
+<!-- CREDITS -->
+<div id="credits">
+  <button class="cr-close" onclick="closeCredits()">✕ Закрыть</button>
+  <div id="cr-scroll">
+    <div class="cr-photos">
+      <img src="" id="cr-p1" alt="1"/>
+      <img src="" id="cr-p2" alt="2"/>
+      <img src="" id="cr-p3" alt="3"/>
+    </div>
+    <div class="cr-name">Нуркен <em>&amp;</em> Дамели</div>
+    <div class="cr-sub">История любви · 23.09.2024 — навсегда</div>
+    <div class="cr-div"></div>
+    <div class="cr-love">
+      Они виделись трижды — и каждый раз расходились.<br/>
+      Он ходил по заведениям, искал её.<br/>
+      <strong>На третью встречу наконец решился.</strong><br/><br/>
+      Через три дня — отношения.<br/>
+      Через неделю — Тараз и знакомство с мамой.<br/>
+      <strong>Через месяц — общий дом.</strong><br/><br/>
+      14 февраля — предложение.<br/>
+      15 марта — Никях.<br/>
+      <strong>Случайная встреча стала смыслом жизни.</strong>
+    </div>
+    <div class="cr-div"></div>
+    <div class="cr-stats">
+      <div><span class="cr-stat-n">1.5</span><div class="cr-stat-l">Года вместе</div></div>
+      <div><span class="cr-stat-n">Никях</span><div class="cr-stat-l">15.03.2025</div></div>
+      <div><span class="cr-stat-n">∞</span><div class="cr-stat-l">Любви</div></div>
+    </div>
+    <div class="cr-div"></div>
+    <div class="cr-roles">
+      <div class="cr-role"><span class="cr-role-k">Главная героиня</span><div class="cr-role-dots"></div><span class="cr-role-v">Дамели</span></div>
+      <div class="cr-role"><span class="cr-role-k">Главный герой</span><div class="cr-role-dots"></div><span class="cr-role-v">Нуркен</span></div>
+      <div class="cr-role"><span class="cr-role-k">Города</span><div class="cr-role-dots"></div><span class="cr-role-v">Алматы · Тараз</span></div>
+      <div class="cr-role"><span class="cr-role-k">Начало</span><div class="cr-role-dots"></div><span class="cr-role-v">23.09.2024</span></div>
+      <div class="cr-role"><span class="cr-role-k">Никях</span><div class="cr-role-dots"></div><span class="cr-role-v">15.03.2025</span></div>
+      <div class="cr-role"><span class="cr-role-k">Рейтинг</span><div class="cr-role-dots"></div><span class="cr-role-v">★★★★★ 10/10</span></div>
+    </div>
+    <div class="cr-div"></div>
+    <div class="cr-heart">❤</div>
+    <div class="cr-final">С любовью — навсегда</div>
+    <div class="cr-brand">netfilm.studio</div>
   </div>
 </div>
 
