@@ -747,17 +747,13 @@ function initFacts() {
 
 function showFact(i) {
   const el = document.getElementById('fact-text');
-  el.classList.remove('show');
-  // wait for fade out to complete (matches CSS 0.8s)
-  setTimeout(() => {
-    el.innerHTML = FACTS[i];
-    // force reflow so animation restarts cleanly
-    void el.offsetHeight;
-    el.classList.add('show');
-  }, 800);
   document.querySelectorAll('.fact-dot').forEach((d, j) => {
     d.classList.toggle('on', j === i);
   });
+  // Всегда показываем немедленно с плавным появлением
+  el.classList.remove('show');
+  el.innerHTML = FACTS[i];
+  setTimeout(() => { el.classList.add('show'); }, 50);
 }
 
 function startFactTimer() {
@@ -1214,13 +1210,24 @@ document.addEventListener('keydown', e => {
 });
 
 /* ═══ СТАРТ ═══ */
-initFacts();
-buildEps();
-buildMovies();
-// Init credits photos
-document.getElementById('cr-p1').src = EP1;
-document.getElementById('cr-p2').src = EP2;
-document.getElementById('cr-p3').src = EP3;
+// Wait for DOM to be fully ready
+function initAll() {
+  initFacts();
+  buildEps();
+  buildMovies();
+  // Init credits photos (may be after script)
+  const p1 = document.getElementById('cr-p1');
+  const p2 = document.getElementById('cr-p2');
+  const p3 = document.getElementById('cr-p3');
+  if (p1) p1.src = EP1;
+  if (p2) p2.src = EP2;
+  if (p3) p3.src = EP3;
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
 </script>
 
 <!-- EP INTRO -->
